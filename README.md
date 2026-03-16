@@ -1,46 +1,74 @@
-# 🫁 Interpretable Pneumonia AI (VGG16 + Grad-CAM)
+# 🩺 Diabetes Risk Prediction AI
 
-### **Explainable Deep Learning for Medical Image Analysis**
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Sarvjais12/your-pneumonia-space-name) This project bridges the gap between high-accuracy medical AI and clinical trust. It uses a fine-tuned **VGG16** convolutional neural network to detect pneumonia from chest X-rays, paired with **Grad-CAM** (Gradient-weighted Class Activation Mapping) to visually explain the model's predictions.
+### **Machine Learning Diagnostic Tool with Class Balancing**
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Sarvjais12/diabetes-prediction-app)
+
+A machine learning-powered web application designed to predict the likelihood of diabetes based on standard medical metrics. Trained on the **Pima Indians Diabetes Dataset**, this project emphasizes end-to-end ML pipeline development, from handling imbalanced data to deploying an interactive web interface.
 
 ---
 
 ## 🚀 Key Features
 
-* **Visual Interpretability (Explainable AI)**: Generates Grad-CAM heatmaps to highlight the exact regions of the X-ray (e.g., lung opacities) that triggered the positive prediction, solving the "black box" problem of deep learning.
-* **High-Precision Classification**: Leverages transfer learning via the VGG16 architecture to accurately distinguish between normal and pneumonia-infected lungs.
-* **Interactive Clinical UI**: Deployed an intuitive web interface where users can upload an X-ray and instantly receive both the diagnosis and the visual evidence.
-* **Real-time Inference**: Optimized for fast prediction delivery using Hugging Face Spaces.
+* **Algorithmic Optimization**: Transitioned from a baseline `MLPClassifier` (Neural Network) to a robust `RandomForestClassifier` to better handle tabular feature relationships and improve interpretability.
+* **Bias Mitigation (Data Balancing)**: Identified a severe class imbalance in the original dataset (500 Non-Diabetic vs. 268 Diabetic records) causing false-negative predictions. Applied **data upsampling** to the minority class to restore predictive fairness and accuracy.
+* **Real-Time Clinical UI**: Deployed an intuitive Gradio web interface allowing users to input medical vitals and receive instantaneous diagnostic predictions.
+* **Zero-Setup Deployment**: Hosted live on Hugging Face Spaces for immediate access and demonstration.
 
 ---
 
-## 🏗️ How it Works (The Architecture)
+## 🧠 Model Architecture & Input Features
 
-1. **Preprocessing**: Raw X-ray images are resized, normalized, and augmented to match the VGG16 input requirements.
-2. **Feature Extraction**: The deep convolutional layers of the network extract hierarchical features from the medical images.
-3. **Classification**: Dense layers map the extracted features to a binary prediction (Pneumonia vs. Normal).
-4. **Grad-CAM Overlay**: The gradients of the target concept flowing into the final convolutional layer are computed to produce a coarse localization heatmap. This map is superimposed over the original X-ray to show exactly where the model is "looking."
+The model analyzes 8 physiological health indicators to output a binary prediction:
+
+| Feature | Description |
+| :--- | :--- |
+| **Pregnancies** | Number of times pregnant |
+| **Glucose** | Plasma glucose concentration (2 hours in an oral glucose tolerance test) |
+| **Blood Pressure** | Diastolic blood pressure (mm Hg) |
+| **Skin Thickness** | Triceps skin fold thickness (mm) |
+| **Insulin** | 2-Hour serum insulin (mu U/ml) |
+| **BMI** | Body Mass Index (weight in kg / (height in m)^2) |
+| **Pedigree Function** | Diabetes pedigree function (genetic risk score) |
+| **Age** | Age in years |
+
+**Target Output:**
+* `0` 🟢 → Non-Diabetic
+* `1` 🔴 → Diabetic
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Deep Learning Framework**: TensorFlow / Keras (or PyTorch)
-* **Computer Vision**: OpenCV, NumPy, Matplotlib
-* **Model Architecture**: VGG16
-* **Interface & Deployment**: Gradio, Hugging Face Spaces
+* **Programming Language**: Python 🐍
+* **Machine Learning Framework**: Scikit-Learn
+* **Data Processing**: Pandas, NumPy (Upsampling & Preprocessing)
+* **Web UI Framework**: Gradio
+* **Cloud Deployment**: Hugging Face Spaces
 
 ---
 
 ## 📋 Professional Context
 
-In medical imaging, raw accuracy metrics are not enough; practitioners require *interpretability*. This project was developed to demonstrate how **Explainable AI (XAI)** can be implemented in healthcare diagnostic tools to build clinical trust and provide actionable visual insights.
+This project highlights core competencies in **Applied Machine Learning**. Rather than blindly trusting initial model outputs, I conducted an error analysis, identified the imbalanced dataset as the root cause of overpredicting the majority class, and applied statistical upsampling to correct the model's behavior. 
 
 ---
 
-### **Installation & Local Usage**
-```bash
-git clone [https://github.com/sarvjais12/Interpretable-Pneumonia-AI.git](https://github.com/sarvjais12/Interpretable-Pneumonia-AI.git)
-cd Interpretable-Pneumonia-AI
-pip install -r requirements.txt
+## 💻 How to Run Locally
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/sarvjais12/Diabetes-Prediction-App.git](https://github.com/sarvjais12/Diabetes-Prediction-App.git)
+   cd Diabetes-Prediction-App
+Install dependencies:
+
+Bash
+pip install scikit-learn gradio pandas numpy
+Launch the app:
+
+Bash
 python app.py
+Open the local URL provided in your terminal to interact with the model.
+
+Author: Sarvagya Jaiswal
+
+B.Tech CSE Student | Specialization in AI/ML [LinkedIn] | [GitHub]
