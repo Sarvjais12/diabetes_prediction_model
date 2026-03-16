@@ -43,7 +43,7 @@ The model analyzes 8 physiological health indicators to output a binary predicti
 * **Machine Learning Framework**: Scikit-Learn
 * **Data Processing**: Pandas, NumPy (Upsampling & Preprocessing)
 * **Web UI Framework**: Gradio
-* **Cloud Deployment**: Hugging Face Spaces
+* **Cloud Deployment**: Hugging Face Spaces :https://huggingface.co/spaces/Sarvjais12/diabetes-prediction-app
 
 ---
 
@@ -71,4 +71,4 @@ Open the local URL provided in your terminal to interact with the model.
 
 Author: Sarvagya Jaiswal
 
-B.Tech CSE Student | Specialization in AI/ML [LinkedIn] | [GitHub]
+B.Tech CSE Student | Specialization in AI/ML [LinkedIn](https://linkedin.com/in/sarvagyajaiswal) | [GitHub](https://github.com/Sarvjais12)
