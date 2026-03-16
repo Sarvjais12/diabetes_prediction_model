@@ -1,69 +1,46 @@
-🩺 Diabetes Prediction App
-Welcome to the Diabetes Prediction App, a machine learning-powered web application that predicts whether a person is diabetic or not based on medical inputs.
+# 🫁 Interpretable Pneumonia AI (VGG16 + Grad-CAM)
 
-🚀 Live App: https://huggingface.co/spaces/Sarvjais12/diabetes-prediction-app
+### **Explainable Deep Learning for Medical Image Analysis**
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Sarvjais12/your-pneumonia-space-name) This project bridges the gap between high-accuracy medical AI and clinical trust. It uses a fine-tuned **VGG16** convolutional neural network to detect pneumonia from chest X-rays, paired with **Grad-CAM** (Gradient-weighted Class Activation Mapping) to visually explain the model's predictions.
 
-📌 Overview
-This app uses a trained Random Forest Classifier model (or MLPClassifier) to predict diabetes risk from 8 health-related input features. It was trained on the popular Pima Indians Diabetes Dataset.
+---
 
-🧠 Model Details
-Input Features:
+## 🚀 Key Features
 
-Pregnancies
+* **Visual Interpretability (Explainable AI)**: Generates Grad-CAM heatmaps to highlight the exact regions of the X-ray (e.g., lung opacities) that triggered the positive prediction, solving the "black box" problem of deep learning.
+* **High-Precision Classification**: Leverages transfer learning via the VGG16 architecture to accurately distinguish between normal and pneumonia-infected lungs.
+* **Interactive Clinical UI**: Deployed an intuitive web interface where users can upload an X-ray and instantly receive both the diagnosis and the visual evidence.
+* **Real-time Inference**: Optimized for fast prediction delivery using Hugging Face Spaces.
 
-Glucose Level
+---
 
-Blood Pressure
+## 🏗️ How it Works (The Architecture)
 
-Skin Thickness
+1. **Preprocessing**: Raw X-ray images are resized, normalized, and augmented to match the VGG16 input requirements.
+2. **Feature Extraction**: The deep convolutional layers of the network extract hierarchical features from the medical images.
+3. **Classification**: Dense layers map the extracted features to a binary prediction (Pneumonia vs. Normal).
+4. **Grad-CAM Overlay**: The gradients of the target concept flowing into the final convolutional layer are computed to produce a coarse localization heatmap. This map is superimposed over the original X-ray to show exactly where the model is "looking."
 
-Insulin
+---
 
-BMI
+## 🛠️ Tech Stack
 
-Diabetes Pedigree Function
+* **Deep Learning Framework**: TensorFlow / Keras (or PyTorch)
+* **Computer Vision**: OpenCV, NumPy, Matplotlib
+* **Model Architecture**: VGG16
+* **Interface & Deployment**: Gradio, Hugging Face Spaces
 
-Age
+---
 
-Target Output:
+## 📋 Professional Context
 
-0 → Non-Diabetic
+In medical imaging, raw accuracy metrics are not enough; practitioners require *interpretability*. This project was developed to demonstrate how **Explainable AI (XAI)** can be implemented in healthcare diagnostic tools to build clinical trust and provide actionable visual insights.
 
-1 → Diabetic
+---
 
-Model Used:
-Initially trained using MLPClassifier from scikit-learn. Later improved using RandomForestClassifier with class balancing to address dataset bias.
-
-⚙️ Tech Stack
-Python 🐍
-
-Scikit-learn
-
-Gradio (for the UI)
-
-Hugging Face Spaces (for deployment)
-
-🖥️ How to Use the App
-Enter your medical details in the Gradio interface.
-
-Click Submit.
-
-Get instant prediction:
-
-"Diabetic" if model output = 1
-
-"Not Diabetic" if model output = 0
-
-🧪 Model Training Notes
-Dataset was imbalanced (500 non-diabetic, 268 diabetic), which caused the model to overpredict diabetes.
-
-Applied upsampling of the diabetic class to balance the training set.
-
-Improved accuracy and fairness.
-
-Sarvagya Jaiswal
-B.Tech CSE Student | Specialization in AI/ML
-LinkedIn • GitHub
-
-📎 Live Deployment Link
-✅ https://huggingface.co/spaces/Sarvjais12/diabetes-prediction-app
+### **Installation & Local Usage**
+```bash
+git clone [https://github.com/sarvjais12/Interpretable-Pneumonia-AI.git](https://github.com/sarvjais12/Interpretable-Pneumonia-AI.git)
+cd Interpretable-Pneumonia-AI
+pip install -r requirements.txt
+python app.py
